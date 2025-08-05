@@ -41,11 +41,11 @@ using Microsoft.ApplicationInsights;
 
 public class Example
 {
-        public static void Main(string[] args)
-        {
-                var telemetry = new TelemetryClient();
-                telemetry.TrackTrace("Application started successfully.");
-        }
+    public static void Main(string[] args)
+    {
+        var telemetry = new TelemetryClient();
+        telemetry.TrackTrace("Application started successfully.");
+    }
 }
 ```
 
@@ -70,7 +70,7 @@ print $response->decoded_content;
 
 ![Azure DevOps GitOps CI/CD](https://learn.microsoft.com/en-us/azure/architecture/example-scenario/gitops-aks/media/gitops-ci-cd-flux.png)
 
-*Figure: Example of a GitOps CI/CD pipeline in Azure Kubernetes Service.*
+_Figure: Example of a GitOps CI/CD pipeline in Azure Kubernetes Service._
 
 ## Common Azure Scenarios
 

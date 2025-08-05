@@ -48,13 +48,13 @@ using k8s;
 
 public class K8sExample
 {
-        public static void Main(string[] args)
-        {
-                var config = KubernetesClientConfiguration.BuildConfigFromConfigFile();
-                IKubernetes client = new Kubernetes(config);
-                var pods = client.ListNamespacedPod("default");
-                Console.WriteLine($"Found {pods.Items.Count} pods in the default namespace.");
-        }
+    public static void Main(string[] args)
+    {
+        var config = KubernetesClientConfiguration.BuildConfigFromConfigFile();
+        IKubernetes client = new Kubernetes(config);
+        var pods = client.ListNamespacedPod("default");
+        Console.WriteLine($"Found {pods.Items.Count} pods in the default namespace.");
+    }
 }
 ```
 
