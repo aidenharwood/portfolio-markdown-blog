@@ -18,8 +18,9 @@ excerpt: A demonstration of Markdown syntax using a classic Lorem Ipsum article,
 3. [Lists](#lists)
 4. [Tables](#tables)
 5. [Code Blocks](#code-blocks)
-6. [Images & Links](#images--links)
-7. [Conclusion](#conclusion)
+6. [Mermaid Diagrams](#mermaid-diagrams)
+7. [Images & Links](#images-and-links)
+8. [Conclusion](#conclusion)
 
 ---
 
@@ -28,6 +29,19 @@ excerpt: A demonstration of Markdown syntax using a classic Lorem Ipsum article,
 > "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
 
 Lorem ipsum is commonly used as placeholder text in publishing and web design.
+
+---
+
+## Mermaid
+```mermaid
+graph TD
+    A[Lorem Ipsum] --> B(Dolor Sit)
+    B --> C{Amet?}
+    C -- Yes --> D[Consectetur]
+    C -- No --> E[Adipiscing]
+    D --> F[Elit]
+    E --> F
+```
 
 ---
 
