@@ -4,6 +4,7 @@ date: 09-04-2025
 slug: bicep-app-settings
 excerpt: How I solved a known gripe with the way environment variables are handled in Azure Web Apps
 ---
+
 # The Problem
 ---
 
@@ -78,6 +79,7 @@ resource someResource 'Microsoft.Provider/resource@2025-04-09' = {
 </table>
 
 would replace `property.propertyA` with `property.propertyB`. This is particularly a problem with Azure Web App environment variables, as often, environment variables may be paired with app code rather than infra code (or even entirely separately); meaning that subsequent bicep runs may completely wipe a developer's configuration.
+
 
 # The Solution
 ---
