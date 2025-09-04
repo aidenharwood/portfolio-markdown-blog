@@ -1,6 +1,6 @@
 ---
 title: Avoiding Azure Web App environment variable overwrites in Bicep
-date: 04-09-2025
+date: 09-04-2025
 slug: bicep-app-settings
 excerpt: How I solved a known gripe with the way environment variables are handled in Azure Web Apps
 ---
