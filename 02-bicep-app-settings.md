@@ -40,7 +40,8 @@ would still leave `propertyA` in place. However, changing
 </tr>
 <tr>
 <td>
-```bicep
+<pre>
+<code class="language-javascript">
 resource someResource 'Microsoft.Provider/resource@2025-04-09' = {
   name: 'resource-name'
   properties: {
@@ -49,10 +50,12 @@ resource someResource 'Microsoft.Provider/resource@2025-04-09' = {
     }
   }
 }
-```
+</pre>
+</code>
 </td>
-<td>    
-```bicep
+<td>
+<pre>
+<code class="language-javascript">
 resource someResource 'Microsoft.Provider/resource@2025-04-09' = {
   name: 'resource-name'
   properties: {
@@ -61,7 +64,8 @@ resource someResource 'Microsoft.Provider/resource@2025-04-09' = {
     }
   }
 }
-```
+</pre>
+</code>
 </td>
 </tr>
 </table>
@@ -71,7 +75,7 @@ would replace `property.propertyA` with `property.propertyB`. This is particular
 In order to avoid overwriting existing environment variables when deploying updates with Bicep, you can use a helper module to retrieve the current app settings and merge them with your new values. This approach ensures that variables are set once with future changes ignored.
 
 ### list-helper.bicep
-```bicep
+```javascript
 targetScope = 'subscription'
 
 param resourceId string
@@ -84,7 +88,7 @@ output list object = list
 ```
 
 ### app-settings.bicep
-```bicep
+```javascript
 targetScope = 'resourceGroup'
 
 param appName string
