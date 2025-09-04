@@ -39,6 +39,7 @@ resource someResource 'Microsoft.Provider/resource@2025-04-09' = {
 </td>
 </tr>
 </table>
+
 would still leave `propertyA` in place. However, changing
 <table>
 <tr>
@@ -47,7 +48,7 @@ would still leave `propertyA` in place. However, changing
 <tr>
 <td>
 <pre>
-<code class="language-javascript">
+<code class="language-javascript hljs">
 resource someResource 'Microsoft.Provider/resource@2025-04-09' = {
   name: 'resource-name'
   properties: {
@@ -61,7 +62,7 @@ resource someResource 'Microsoft.Provider/resource@2025-04-09' = {
 </td>
 <td>
 <pre>
-<code class="language-javascript">
+<code class="language-javascript hljs">
 resource someResource 'Microsoft.Provider/resource@2025-04-09' = {
   name: 'resource-name'
   properties: {
@@ -75,6 +76,7 @@ resource someResource 'Microsoft.Provider/resource@2025-04-09' = {
 </td>
 </tr>
 </table>
+
 would replace `property.propertyA` with `property.propertyB`. This is particularly a problem with Azure Web App environment variables, as often, environment variables may be paired with app code rather than infra code (or even entirely separately); meaning that subsequent bicep runs may completely wipe a developer's configuration.
 
 # The Solution
