@@ -32,6 +32,7 @@ resource someResource 'Microsoft.Provider/resource@2025-04-09' = {
   properties: {
     propertyB: 'valueB'
   }
+}
 </pre>
 </code>
 </td>
