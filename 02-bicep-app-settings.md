@@ -9,47 +9,26 @@ excerpt: How I solved a known gripe with the way environment variables are handl
 ---
 
 Bicep is inherently an incremental deployment, meaning that changes are generally additive. There are exceptions to this, when making changes to nested resources; for example, changing
-<table>
-<tr>
-<td>From</td><td>To</td>
-</tr>
-<tr>
-<td>
-<pre>
-<code class="language-javascript">
+```bicep
 resource someResource 'Microsoft.Provider/resource@2025-04-09' = {
   name: 'resource-name'
   properties: {
     propertyA: 'valueA'
   }
 }
-</pre>
-</code>
-</td>
-<td>
-<pre>
-<code class="language-javascript">
+```
+to
+```bicep
 resource someResource 'Microsoft.Provider/resource@2025-04-09' = {
   name: 'resource-name'
   properties: {
     propertyB: 'valueB'
   }
 }
-</pre>
-</code>
-</td>
-</tr>
-</table>
-
+```
 would still leave `propertyA` in place. However, changing
-<table>
-<tr>
-<td>From</td><td>To</td>
-</tr>
-<tr>
-<td>
-<pre>
-<code class="language-javascript hljs">
+
+```bicep
 resource someResource 'Microsoft.Provider/resource@2025-04-09' = {
   name: 'resource-name'
   properties: {
@@ -58,13 +37,10 @@ resource someResource 'Microsoft.Provider/resource@2025-04-09' = {
     }
   }
 }
-</pre>
-</code>
-</td>
-<td>
-<pre>
-<code class="language-javascript hljs">
-resource someResource 'Microsoft.Provider/resource@2025-04-09' = {
+```
+to
+```bicep
+resource someResource 'Microsoft.Provi`der/resource@2025-04-09' = {
   name: 'resource-name'
   properties: {
     property: {
@@ -72,12 +48,7 @@ resource someResource 'Microsoft.Provider/resource@2025-04-09' = {
     }
   }
 }
-</pre>
-</code>
-</td>
-</tr>
-</table>
-
+```
 would replace `property.propertyA` with `property.propertyB`. This is particularly a problem with Azure Web App environment variables, as often, environment variables may be paired with app code rather than infra code (or even entirely separately); meaning that subsequent bicep runs may completely wipe a developer's configuration.
 
 
@@ -85,8 +56,7 @@ would replace `property.propertyA` with `property.propertyB`. This is particular
 ---
 In order to avoid overwriting existing environment variables when deploying updates with Bicep, you can use a helper module to retrieve the current app settings and merge them with your new values. This approach ensures that variables are set once with future changes ignored.
 
-### list-helper.bicep
-```javascript
+```bicep filename=list-helper.bicep
 targetScope = 'subscription'
 
 param resourceId string
@@ -98,8 +68,7 @@ var list = az.list(resourceId, apiVersion)
 output list object = list
 ```
 
-### app-settings.bicep
-```javascript
+```bicep filename=app-settings.bicep
 targetScope = 'resourceGroup'
 
 param appName string
