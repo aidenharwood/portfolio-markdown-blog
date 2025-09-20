@@ -19,6 +19,8 @@ The single-node k0s setup has now been replaced with a small [multipass](https:/
 This was made possible with ease thanks to [k3m](https://github.com/eznix86/k3m)
 > **Note:** k3m doesn't appear to separate control-plane and worker nodes, use with caution
 
+**NB:** This has now actually been revered to a running k3s directly on the host, due to multi-node/VM clusters being severely limited by IOPS (the host only has a HDD for the time being, this will change once I have an SSD installed)
+
 # Additions
 ## VPN
 [WireGuard VPN](https://www.wireguard.com/) is also configured on the server; this allows for two main things: Remote access to the homelab, and ad-blocking which is already set up on my home network via [OpenWRT](https://openwrt.org/)
