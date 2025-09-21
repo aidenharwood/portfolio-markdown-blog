@@ -1,6 +1,6 @@
 ---
-title: Dynamic Object Property Traversal in Bice
-date: 08-21-2025
+title: Dynamic Object Property Traversal in Bicep
+date: 09-21-2025
 slug: bicep-dynamic-object-traversal
 excerpt: How I devised a way to traverse object properties on-the-fly in Bicep
 ---
