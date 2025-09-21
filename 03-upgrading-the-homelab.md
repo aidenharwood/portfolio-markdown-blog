@@ -1,6 +1,6 @@
 ---
 title: Homelab Upgrades - New Hardware!
-date: 08-20-2025
+date: 09-17-2025
 slug: homelab-upgrades-new-hardware
 excerpt: Moving the homelab from an old laptop to a dedicated machine
 ---
