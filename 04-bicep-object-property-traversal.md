@@ -28,17 +28,17 @@ func findProperty(obj object, path string) string? =>
   )
 
 output example = findProperty(reference('/some/resource/id', '2025-01-01', 'full'), 'properties.array.1.property')
-### Assume the returned property from reference() is:
-### {
-###     "properties": {
-###         "array": [
-###             { "property": "example1" },
-###             { "property": "example2" },
-###         ]
-###     }    
-### }
-###
-### The example output above would return "example2"
+// Assume the returned property from reference() is:
+// {
+//     "properties": {
+//         "array": [
+//             { "property": "example1" },
+//             { "property": "example2" },
+//         ]
+//     }    
+// }
+//
+// The example output above would return "example2"
 ```
 ## What does this do?
 1. Splits the property reference into its constituent parts

@@ -14,16 +14,16 @@ This allows much better flexibility; I can actually use the laptop for "laptop t
 
 # The Cluster Grows
 
-The single-node k0s setup has now been replaced with a small [multipass](https://canonical.com/multipass) VM cluster running [k3s](https://k3s.io/). This means that the cluster is now compartmentalised to a series of VMs rather than directly on the host.
+The single-node k0s setup has now been replaced with a [multipass](https://canonical.com/multipass) VM cluster running [k3s](https://k3s.io/). This means that the cluster is now compartmentalised to a series of VMs rather than directly on the host. While mimicing a somewhat-high-availability setup; this is obviously still limited by two main factors:
+1. Ingress to the VMs is via HAProxy on the hypervisor
+2. Hardware-level failures on the hypervisor will still take down the cluster
 
 This was made possible with ease thanks to [k3m](https://github.com/eznix86/k3m)
 > **Note:** k3m doesn't appear to separate control-plane and worker nodes, use with caution
 
-**NB:** This has now actually been revered to a running k3s directly on the host, due to multi-node/VM clusters being severely limited by IOPS (the host only has a HDD for the time being, this will change once I have an SSD installed)
-
 # Additions
 ## VPN
-[WireGuard VPN](https://www.wireguard.com/) is also configured on the server; this allows for two main things: Remote access to the homelab, and ad-blocking which is already set up on my home network via [OpenWRT](https://openwrt.org/)
+[WireGuard VPN](https://www.wireguard.com/) is also configured on the server; this allows for two main things: Remote access to the homelab, and DNS-level adblock via [OpenWRT](https://openwrt.org/)
 
 ## Living Room Integration
-The homelab is now connected to the living room TV, leaving room for further projects such as media center and streaming capabilities
+The homelab is now connected to the living room TV, meaning the server can double as a HTPC.
